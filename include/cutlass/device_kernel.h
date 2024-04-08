@@ -97,10 +97,10 @@ void Kernel2(typename Operator::Params params) {
 /// Generic CUTLASS kernel template.
 template <typename Operator>
 CUTLASS_GLOBAL
-#ifdef __CUDACC__
-// Enclosing this in __CUDACC__ suppresses MSVC warnings.
+#ifdef __HIPCC__
+// Enclosing this in __HIPCC__ suppresses MSVC warnings.
 __launch_bounds__(Operator::MaxThreadsPerBlock, Operator::MinBlocksPerMultiprocessor)
-#endif // __CUDACC__
+#endif // __HIPCC__
 void device_kernel(CUTLASS_GRID_CONSTANT typename Operator::Params const params)
 {
   // Dynamic shared memory base pointer

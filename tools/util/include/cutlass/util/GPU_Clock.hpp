@@ -31,7 +31,7 @@
 
 #pragma once
 
-#include <cuda_runtime.h>
+#include <hip/hip_runtime.h>
 
 struct GPU_Clock
 {

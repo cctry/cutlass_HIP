@@ -35,7 +35,7 @@
 #pragma once
 
 #include <cublas_v2.h>
-#include <cuda_fp16.h>
+#include <hip/hip_fp16.h>
 #include <stdint.h>
 
 #include "cutlass/numeric_types.h"

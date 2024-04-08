@@ -35,7 +35,7 @@
  * \brief Debugging and logging functionality
  */
 
-#include <cuda_runtime_api.h>
+#include <hip/hip_runtime_api.h>
 
 #include <cute/config.hpp>
 

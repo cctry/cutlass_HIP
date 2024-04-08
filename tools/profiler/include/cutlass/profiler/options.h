@@ -38,7 +38,7 @@
 #include <vector>
 #include <map>
 
-#include <cuda_runtime.h>
+#include <hip/hip_runtime.h>
 
 #include "cutlass/util/command_line.h"
 #include "cutlass/util/distribution.h"

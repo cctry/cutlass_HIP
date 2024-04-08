@@ -55,7 +55,7 @@
 #include <cstring>
 #endif
 
-#include <cuda_bf16.h>
+#include "hip_bf16.h"
 #include "cutlass/cutlass.h"
 #include "cutlass/platform/platform.h"
 

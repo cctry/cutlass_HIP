@@ -940,10 +940,5 @@ print_latex_mma(LayoutC const& C, ThrIDC const& TC,  // (m,n) -> (tid,vid)  and 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <cute/atom/mma_traits_sm61.hpp>
-#include <cute/atom/mma_traits_sm70.hpp>
-#include <cute/atom/mma_traits_sm75.hpp>
-#include <cute/atom/mma_traits_sm80.hpp>
-#include <cute/atom/mma_traits_sm90.hpp>
-#include <cute/atom/mma_traits_sm90_gmma.hpp>
+#include <cute/atom/mma_traits_cdna2.hpp>
 ////////////////////////////////////////////////////////////////////////////////////////////////////

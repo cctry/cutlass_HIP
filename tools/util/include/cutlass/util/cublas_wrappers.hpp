@@ -31,7 +31,7 @@
 
 #pragma once
 
-#include <cuda_runtime.h>
+#include <hip/hip_runtime.h>
 #include <cublas_v2.h>
 
 //-- BLAM_DEBUG_OUT ---------------------------------------------------------
@@ -238,11 +238,11 @@ gemm(cublasHandle_t handle,
 
   return cublasCgemm(handle, transA, transB,
                      m, n, k,
-                     reinterpret_cast<const cuFloatComplex*>(alpha),
-                     reinterpret_cast<const cuFloatComplex*>(A), ldA,
-                     reinterpret_cast<const cuFloatComplex*>(B), ldB,
-                     reinterpret_cast<const cuFloatComplex*>(beta),
-                     reinterpret_cast<cuFloatComplex*>(C), ldC);
+                     reinterpret_cast<const hipFloatComplex*>(alpha),
+                     reinterpret_cast<const hipFloatComplex*>(A), ldA,
+                     reinterpret_cast<const hipFloatComplex*>(B), ldB,
+                     reinterpret_cast<const hipFloatComplex*>(beta),
+                     reinterpret_cast<hipFloatComplex*>(C), ldC);
 }
 
 // zgemm
@@ -260,11 +260,11 @@ gemm(cublasHandle_t handle,
 
   return cublasZgemm(handle, transA, transB,
                      m, n, k,
-                     reinterpret_cast<const cuDoubleComplex*>(alpha),
-                     reinterpret_cast<const cuDoubleComplex*>(A), ldA,
-                     reinterpret_cast<const cuDoubleComplex*>(B), ldB,
-                     reinterpret_cast<const cuDoubleComplex*>(beta),
-                     reinterpret_cast<cuDoubleComplex*>(C), ldC);
+                     reinterpret_cast<const hipDoubleComplex*>(alpha),
+                     reinterpret_cast<const hipDoubleComplex*>(A), ldA,
+                     reinterpret_cast<const hipDoubleComplex*>(B), ldB,
+                     reinterpret_cast<const hipDoubleComplex*>(beta),
+                     reinterpret_cast<hipDoubleComplex*>(C), ldC);
 }
 
 // hgemm
@@ -355,11 +355,11 @@ gemm_batch(cublasHandle_t handle,
 
   return cublasCgemmStridedBatched(handle, transA, transB,
                                    m, n, k,
-                                   reinterpret_cast<const cuFloatComplex*>(alpha),
-                                   reinterpret_cast<const cuFloatComplex*>(A), ldA, loA,
-                                   reinterpret_cast<const cuFloatComplex*>(B), ldB, loB,
-                                   reinterpret_cast<const cuFloatComplex*>(beta),
-                                   reinterpret_cast<cuFloatComplex*>(C), ldC, loC,
+                                   reinterpret_cast<const hipFloatComplex*>(alpha),
+                                   reinterpret_cast<const hipFloatComplex*>(A), ldA, loA,
+                                   reinterpret_cast<const hipFloatComplex*>(B), ldB, loB,
+                                   reinterpret_cast<const hipFloatComplex*>(beta),
+                                   reinterpret_cast<hipFloatComplex*>(C), ldC, loC,
                                    batch_size);
 }
 
@@ -379,11 +379,11 @@ gemm_batch(cublasHandle_t handle,
 
   return cublasZgemmStridedBatched(handle, transA, transB,
                                    m, n, k,
-                                   reinterpret_cast<const cuDoubleComplex*>(alpha),
-                                   reinterpret_cast<const cuDoubleComplex*>(A), ldA, loA,
-                                   reinterpret_cast<const cuDoubleComplex*>(B), ldB, loB,
-                                   reinterpret_cast<const cuDoubleComplex*>(beta),
-                                   reinterpret_cast<cuDoubleComplex*>(C), ldC, loC,
+                                   reinterpret_cast<const hipDoubleComplex*>(alpha),
+                                   reinterpret_cast<const hipDoubleComplex*>(A), ldA, loA,
+                                   reinterpret_cast<const hipDoubleComplex*>(B), ldB, loB,
+                                   reinterpret_cast<const hipDoubleComplex*>(beta),
+                                   reinterpret_cast<hipDoubleComplex*>(C), ldC, loC,
                                    batch_size);
 }
 
@@ -484,14 +484,14 @@ gemm_batch(cublasHandle_t handle,
 
   return cublasCgemmBatched(handle, transA, transB,
                             m, n, k,
-                            reinterpret_cast<const cuFloatComplex*>(alpha),
-                            const_cast<const cuFloatComplex**>(reinterpret_cast<const cuFloatComplex* const *>(A)), ldA,
-                            //reinterpret_cast<const cuFloatComplex* const *>(A), ldA,  // cuBLAS 9.2
-                            const_cast<const cuFloatComplex**>(reinterpret_cast<const cuFloatComplex* const *>(B)), ldB,
-                            //reinterpret_cast<const cuFloatComplex* const *>(B), ldB,  // cuBLAS 9.2
-                            reinterpret_cast<const cuFloatComplex*>(beta),
-                            const_cast<cuFloatComplex**>(reinterpret_cast<cuFloatComplex* const *>(C)), ldC,
-                            //reinterpret_cast<cuFloatComplex* const *>(C), ldC,        // cuBLAS 9.2
+                            reinterpret_cast<const hipFloatComplex*>(alpha),
+                            const_cast<const hipFloatComplex**>(reinterpret_cast<const hipFloatComplex* const *>(A)), ldA,
+                            //reinterpret_cast<const hipFloatComplex* const *>(A), ldA,  // cuBLAS 9.2
+                            const_cast<const hipFloatComplex**>(reinterpret_cast<const hipFloatComplex* const *>(B)), ldB,
+                            //reinterpret_cast<const hipFloatComplex* const *>(B), ldB,  // cuBLAS 9.2
+                            reinterpret_cast<const hipFloatComplex*>(beta),
+                            const_cast<hipFloatComplex**>(reinterpret_cast<hipFloatComplex* const *>(C)), ldC,
+                            //reinterpret_cast<hipFloatComplex* const *>(C), ldC,        // cuBLAS 9.2
                             batch_size);
 }
 
@@ -511,14 +511,14 @@ gemm_batch(cublasHandle_t handle,
 
   return cublasZgemmBatched(handle, transA, transB,
                             m, n, k,
-                            reinterpret_cast<const cuDoubleComplex*>(alpha),
-                            const_cast<const cuDoubleComplex**>(reinterpret_cast<const cuDoubleComplex* const *>(A)), ldA,
-                            //reinterpret_cast<const cuDoubleComplex* const *>(A), ldA,  // cuBLAS 9.2
-                            const_cast<const cuDoubleComplex**>(reinterpret_cast<const cuDoubleComplex* const *>(B)), ldB,
-                            //reinterpret_cast<const cuDoubleComplex* const *>(B), ldB,  // cuBLAS 9.2
-                            reinterpret_cast<const cuDoubleComplex*>(beta),
-                            const_cast<cuDoubleComplex**>(reinterpret_cast<cuDoubleComplex* const *>(C)), ldC,
-                            //reinterpret_cast<cuDoubleComplex* const *>(C), ldC,        // cuBLAS 9.2
+                            reinterpret_cast<const hipDoubleComplex*>(alpha),
+                            const_cast<const hipDoubleComplex**>(reinterpret_cast<const hipDoubleComplex* const *>(A)), ldA,
+                            //reinterpret_cast<const hipDoubleComplex* const *>(A), ldA,  // cuBLAS 9.2
+                            const_cast<const hipDoubleComplex**>(reinterpret_cast<const hipDoubleComplex* const *>(B)), ldB,
+                            //reinterpret_cast<const hipDoubleComplex* const *>(B), ldB,  // cuBLAS 9.2
+                            reinterpret_cast<const hipDoubleComplex*>(beta),
+                            const_cast<hipDoubleComplex**>(reinterpret_cast<hipDoubleComplex* const *>(C)), ldC,
+                            //reinterpret_cast<hipDoubleComplex* const *>(C), ldC,        // cuBLAS 9.2
                             batch_size);
 }
 

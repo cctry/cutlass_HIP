@@ -551,10 +551,10 @@ cublasStatus_t cublasRankKDispatcher::operator()(cublasHandle_t handle) {
             configuration.problem_size.n(),
             configuration.problem_size.k(),
             static_cast<const double*>(arguments.alpha),
-            static_cast<const cuDoubleComplex*>(arguments.A),
+            static_cast<const hipDoubleComplex*>(arguments.A),
             int(configuration.lda),
             static_cast<const double*>(arguments.beta),
-            static_cast<cuDoubleComplex*>(arguments.D),
+            static_cast<hipDoubleComplex*>(arguments.D),
             int(configuration.ldc)
           );
         }    
@@ -565,11 +565,11 @@ cublasStatus_t cublasRankKDispatcher::operator()(cublasHandle_t handle) {
             trans_A,
             configuration.problem_size.n(),
             configuration.problem_size.k(),
-            static_cast<const cuDoubleComplex*>(arguments.alpha),
-            static_cast<const cuDoubleComplex*>(arguments.A),
+            static_cast<const hipDoubleComplex*>(arguments.alpha),
+            static_cast<const hipDoubleComplex*>(arguments.A),
             int(configuration.lda),
-            static_cast<const cuDoubleComplex*>(arguments.beta),
-            static_cast<cuDoubleComplex*>(arguments.D),
+            static_cast<const hipDoubleComplex*>(arguments.beta),
+            static_cast<hipDoubleComplex*>(arguments.D),
             int(configuration.ldc)
           );
         }
@@ -665,13 +665,13 @@ cublasStatus_t cublasRankKDispatcher::operator()(cublasHandle_t handle) {
             trans_A,
             configuration.problem_size.n(),
             configuration.problem_size.k(),
-            static_cast<const cuDoubleComplex*>(arguments.alpha),
-            static_cast<const cuDoubleComplex*>(arguments.A),
+            static_cast<const hipDoubleComplex*>(arguments.alpha),
+            static_cast<const hipDoubleComplex*>(arguments.A),
             int(configuration.lda),
-            static_cast<const cuDoubleComplex*>(arguments.B),
+            static_cast<const hipDoubleComplex*>(arguments.B),
             int(configuration.ldb),
             static_cast<const double*>(arguments.beta),
-            static_cast<cuDoubleComplex*>(arguments.D),
+            static_cast<hipDoubleComplex*>(arguments.D),
             int(configuration.ldc)
           );
         }    
@@ -682,13 +682,13 @@ cublasStatus_t cublasRankKDispatcher::operator()(cublasHandle_t handle) {
             trans_A,
             configuration.problem_size.n(),
             configuration.problem_size.k(),
-            static_cast<const cuDoubleComplex*>(arguments.alpha),
-            static_cast<const cuDoubleComplex*>(arguments.A),
+            static_cast<const hipDoubleComplex*>(arguments.alpha),
+            static_cast<const hipDoubleComplex*>(arguments.A),
             int(configuration.lda),
-            static_cast<const cuDoubleComplex*>(arguments.B),
+            static_cast<const hipDoubleComplex*>(arguments.B),
             int(configuration.ldb),
-            static_cast<const cuDoubleComplex*>(arguments.beta),
-            static_cast<cuDoubleComplex*>(arguments.D),
+            static_cast<const hipDoubleComplex*>(arguments.beta),
+            static_cast<hipDoubleComplex*>(arguments.D),
             int(configuration.ldc)
           );
         }
@@ -900,12 +900,12 @@ cublasStatus_t cublasTrmmDispatcher::operator()(cublasHandle_t handle) {
       diag,
       configuration.problem_size.m(),
       configuration.problem_size.n(),
-      static_cast<const cuDoubleComplex*>(arguments.alpha),
-      static_cast<const cuDoubleComplex*>(arguments.A),
+      static_cast<const hipDoubleComplex*>(arguments.alpha),
+      static_cast<const hipDoubleComplex*>(arguments.A),
       int(configuration.lda),
-      static_cast<const cuDoubleComplex*>(arguments.B),
+      static_cast<const hipDoubleComplex*>(arguments.B),
       int(configuration.ldb),
-      static_cast<cuDoubleComplex*>(arguments.D),
+      static_cast<hipDoubleComplex*>(arguments.D),
       int(configuration.ldd)
     );
   } else if (data_type_A == data_type_D && data_type_A == CUDA_C_32F) {
@@ -1097,13 +1097,13 @@ cublasStatus_t cublasSymmDispatcher::operator()(cublasHandle_t handle) {
           uplo,
           configuration.problem_size.m(),
           configuration.problem_size.n(),
-          static_cast<const cuDoubleComplex*>(arguments.alpha),
-          static_cast<const cuDoubleComplex*>(arguments.A),
+          static_cast<const hipDoubleComplex*>(arguments.alpha),
+          static_cast<const hipDoubleComplex*>(arguments.A),
           int(configuration.lda),
-          static_cast<const cuDoubleComplex*>(arguments.B),
+          static_cast<const hipDoubleComplex*>(arguments.B),
           int(configuration.ldb),
-          static_cast<const cuDoubleComplex*>(arguments.beta),
-          static_cast<cuDoubleComplex*>(arguments.D),
+          static_cast<const hipDoubleComplex*>(arguments.beta),
+          static_cast<hipDoubleComplex*>(arguments.D),
           int(configuration.ldc)
         );
       }    
@@ -1114,13 +1114,13 @@ cublasStatus_t cublasSymmDispatcher::operator()(cublasHandle_t handle) {
           uplo,
           configuration.problem_size.m(),
           configuration.problem_size.n(),
-          static_cast<const cuDoubleComplex*>(arguments.alpha),
-          static_cast<const cuDoubleComplex*>(arguments.A),
+          static_cast<const hipDoubleComplex*>(arguments.alpha),
+          static_cast<const hipDoubleComplex*>(arguments.A),
           int(configuration.lda),
-          static_cast<const cuDoubleComplex*>(arguments.B),
+          static_cast<const hipDoubleComplex*>(arguments.B),
           int(configuration.ldb),
-          static_cast<const cuDoubleComplex*>(arguments.beta),
-          static_cast<cuDoubleComplex*>(arguments.D),
+          static_cast<const hipDoubleComplex*>(arguments.beta),
+          static_cast<hipDoubleComplex*>(arguments.D),
           int(configuration.ldc)
         );
       }

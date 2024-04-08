@@ -30,7 +30,7 @@
  **************************************************************************************************/
 #pragma once
 
-#include <vector_types.h>
+#include <hip/hip_vector_types.h>
 #include <cutlass/numeric_types.h>
 #include <cutlass/numeric_size.h>
 

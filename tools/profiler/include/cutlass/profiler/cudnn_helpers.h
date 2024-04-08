@@ -35,7 +35,7 @@
 
 #pragma once
 #if CUTLASS_ENABLE_CUDNN
-#include <cuda_runtime.h>
+#include <hip/hip_runtime.h>
 #include <cudnn.h>
 #include <iostream>
 #include "cutlass/cutlass.h"

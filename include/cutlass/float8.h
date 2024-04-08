@@ -86,7 +86,7 @@
 #ifdef CUDA_FP8_ENABLED
 #include <cuda_fp8.h>
 #endif
-#include <cuda_fp16.h>
+#include <hip/hip_fp16.h>
 
 #include "cutlass/cutlass.h"
 ///////////////////////////////////////////////////////////////////////////////////////////////////

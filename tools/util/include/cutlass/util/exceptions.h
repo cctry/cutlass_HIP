@@ -36,7 +36,7 @@
  * \brief C++ exception semantics for CUDA error codes
  */
 
-#include <cuda_runtime.h>
+#include <hip/hip_runtime.h>
 #include <iosfwd>
 #include <stdexcept>
 

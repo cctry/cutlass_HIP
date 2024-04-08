@@ -197,4 +197,15 @@ copy_unpack(Copy_Traits<CopyOp,Args...> const& traits,
   copy_unpack(traits, src, dst);
 }
 
+// Element copy selector
+template <class SrcTensor, class DstTensor>
+CUTE_HOST_DEVICE constexpr
+auto
+select_elementwise_copy(SrcTensor const&, DstTensor const&)
+{
+  using SrcType = typename SrcTensor::value_type;
+  using DstType = typename DstTensor::value_type;
+  return UniversalCopy<SrcType,DstType>{};
+}
+
 } // end namespace cute

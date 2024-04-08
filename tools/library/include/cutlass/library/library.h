@@ -51,7 +51,7 @@
 #include <string>
 #include <cstdint>
 #include <stdexcept>
-#include <cuda_runtime.h>
+#include <hip/hip_runtime.h>
 
 #include "cutlass/cutlass.h"
 #include "cutlass/library/types.h"

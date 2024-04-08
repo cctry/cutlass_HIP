@@ -95,7 +95,7 @@ if is_torch_available():
 
 
 _PYTORCH_CUDA_TEMPLATE = common._CSTYLE_AUTOGEN_COMMENT + """
-#include <cuda_runtime.h>
+#include <hip/hip_runtime.h>
 #include <torch/extension.h>
 #include <ATen/ATen.h>
 #include <ATen/cuda/CUDAContext.h>

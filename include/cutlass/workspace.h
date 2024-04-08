@@ -46,7 +46,7 @@
 
 #if !defined(__CUDACC_RTC__)
 #include "cuda.h"
-#include "cuda_runtime.h"
+#include "hip/hip_runtime.h"
 
 #include "cutlass/trace.h"
 #endif
