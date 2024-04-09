@@ -12,7 +12,10 @@ function(target_link target_name)
   target_link_libraries(${target_name} PRIVATE hip::host MIOpen)
 endfunction()
 
+set(SOURCE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR})
+
 function(target_include target_name)
-    target_include_directories(test_distance PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    target_include_directories(${target_name} PRIVATE ${SOURCE_HEADERS}/include)
 endfunction()
 
+add_subdirectory(examples)
